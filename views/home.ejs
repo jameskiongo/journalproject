@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<!-- body -->
+<div class="container-fluid">
+    <h1 class="month-title">Month's entries</h1>
+</div>
+
+
+<!-- popup when you click new entry -->
+<div class="bg-modal" id="simpleModal">
+    <div class="modal-content">
+        <div class="close-modal" id="closeBtn">+</div>
+        <img src="/images/diary-picture.png" alt="Write in diary" class="diary-image">
+        <label class="recent-date">Date: <a id="date-today"></a></label>
+        <form action="/" method="post">
+        <input type="text" name="diaryTitle" placeholder="Title Entry" class="modal-text" required>
+        <textarea class="modal-tarea" name="diaryContent" id="" cols="30" rows="5"
+            placeholder="Write down what you're thinking" required></textarea>
+        <button type="submit" class="btn btn-outline-dark">Save Text <i class="fa fa-save"></i></button>
+        <button type="button" class="btn btn-outline-danger">Delete All Text <i class="fa fa-trash"></i></button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <% posts.forEach(function(post){%>
+        <%= post.title %><br>
+        <%= post.content %><br>
+    <% }) %>
+</div>
+
+<%- include('partials/footer'); -%>
